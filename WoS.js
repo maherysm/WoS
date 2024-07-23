@@ -76,6 +76,12 @@ setInterval(
 )
 
 
+function bigWord(word)
+{
+    //space and capitalize letters
+    return word.split('').join(' ').toUpperCase().trim();
+}
+
 // Called every time a message comes in
 async function onMessageHandler (target, context, msg, self) {
     if (self) {
