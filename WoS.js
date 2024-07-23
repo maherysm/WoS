@@ -168,7 +168,7 @@ async function onMessageHandler (target, context, msg, self) {
                             if (res.rows.length === 0) {
                                 //add it to the DB
                                 pool.query(insertWord, [msg, points, five, six, seven, eight])
-                                console.debug(insertWord + " added to the list of words")
+                                console.debug(msg + " added to the list of words")
                             }
 
 
