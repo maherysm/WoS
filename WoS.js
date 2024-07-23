@@ -162,12 +162,12 @@ async function onMessageHandler (target, context, msg, self) {
                     console.log(msg)
 
                     //check if word exists in DB
-                    pool.query(wordsPointsShapesDB, [points, five, six, seven, eight], (err, res) => {
+                    pool.query(wordsWordsDB, msg, (err, res) => {
 
                             //if it doesn't exist
                             if (res.rows.length === 0) {
                                 //add it to the DB
-                                pool.query(insertWord, [points, five, six, seven, eight])
+                                pool.query(insertWord, [msg, points, five, six, seven, eight])
                                 console.debug(insertWord + " added to the list of words")
                             }
 
