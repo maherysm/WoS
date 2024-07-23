@@ -159,15 +159,15 @@ async function onMessageHandler (target, context, msg, self) {
                 if (info.user.name === `${context['display-name']}`.toLowerCase()) {
 
 
-                    console.log(msg)
+                    biggie = msg.toLowerCase()
 
                     //check if word exists in DB
-                    pool.query(wordsWordsDB, msg, (err, res) => {
-
+                    pool.query(wordsWordsDB, [biggie], (err, res) => {
+                            console.log(res.rows.length)
                             //if it doesn't exist
                             if (res.rows.length === 0) {
                                 //add it to the DB
-                                pool.query(insertWord, [msg, points, five, six, seven, eight])
+                                pool.query(insertWord, [biggie, points, five, six, seven, eight])
                                 console.debug(msg + " added to the list of words")
                             }
 
